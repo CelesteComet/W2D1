@@ -25,5 +25,6 @@ class Display
     end
     puts
     board[x,y].selected = false
+    print board.inputs
   end
 end

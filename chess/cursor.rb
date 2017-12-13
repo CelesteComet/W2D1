@@ -32,7 +32,8 @@ MOVES = {
 
 class Cursor
 
-  attr_reader :cursor_pos, :board
+  attr_reader :board
+  attr_accessor :cursor_pos
 
   def initialize(cursor_pos, board)
     @cursor_pos = cursor_pos
@@ -79,7 +80,7 @@ class Cursor
     print key
     case key
     when :return
-      @cursor_pos
+      @board.inputs << @cursor_pos unless @board[*@cursor_pos].class == NullPiece && @board.inputs.length < 1
     when :space
       @cursor_pos
     when :up
